@@ -18,9 +18,7 @@ class TwitterClient(tweepy.StreamListener):
             tweet_text = status.extended_tweet.full_text
         except:
             tweet_text = status.text
-
         tweet_text = p.clean(tweet_text)
-
         if self.topic.lower() not in tweet_text.lower():
             return
         blob = TextBlob(tweet_text)
