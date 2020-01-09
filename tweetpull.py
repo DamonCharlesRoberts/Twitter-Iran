@@ -9,6 +9,7 @@
 #Authentication with Tweepy
 import tweepy
 import key
+import pandas as pd
 auth = tweepy.OAuthHandler(key.consumer_key,
                           key.consumer_secret)
 auth.set_access_token(key.access_token,
@@ -32,3 +33,4 @@ while len(iran_tweets) < max_tweets:
         last_id = newIran_tweets[-1].id
     except tweepy.TweepError as e:
         break 
+df = pd.DataFrame(data = iran_tweets)
